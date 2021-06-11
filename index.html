@@ -1,0 +1,185 @@
+<!-- <html>
+	<head>
+		<meta charset="UTF-8">
+<script>
+function buscarSelect()
+{
+	// creamos un variable que hace referencia al select
+	var select=document.getElementById("elementos");
+ 
+	// obtenemos el valor a buscar
+	var buscar=document.getElementById("buscar").value;
+ 
+	// recorremos todos los valores del select
+	/* for(var i=1;i<select.length;i++)
+	{
+		if(select.options[i].text==buscar)
+		{
+			// seleccionamos el valor que coincide
+			select.selectedIndex=i;
+		}
+	} */
+
+var fil=select.filter(x=>x.options.equals(buscar))
+
+if (fil>0){
+    select.
+}
+
+
+}
+</script>
+	</head>
+	<body>
+		<h2>Introduce un valor en el cuadro de texto que exista dentro del select y pulsa en buscar</h2>
+		<form onsubmit="return false">
+			<input type="text" id="buscar"><input type="submit" value="buscar" onclick="buscarSelect()">
+			<p>
+				<select id="elementos">
+					<option value="0">...</option>
+					<option value="1">coche</option>
+					<option value="2">avion</option>
+					<option value="3">moto</option>
+					<option value="4">tren</option>
+                    <option value="5">tren1</option>
+                    <option value="6">tren</option>
+				</select>
+			</p>
+		</form>
+	</body>
+</html> -->
+
+
+<!-- <html>
+	<head>
+	<script>
+	function sel(c){
+	
+	c = c.toLowerCase();
+	
+	formu=document.forms['formulario'];
+	caracteres=c.length;
+   if(caracteres!=0){
+	for (x=0;x<formu['lista'].options.length;x++){
+	if(formu['lista'].options[x].value.slice(0,caracteres)==c){
+	formu['lista'].selectedIndex=x;
+   formu['lista'].style.visibility="visible";
+	break;
+   }else{
+	formu['lista'].style.visibility="hidden";
+	}
+	}
+	}else{
+	formu['lista'].style.visibility="hidden";
+   
+	}
+	}
+	</script></head>
+   
+   
+	<body>
+	<form action="index.html" name="formulario" >
+	<input type="text" name="buscar" onKeyUp="sel(this.value)" style="width:200px;"><br>
+	<select name="lista" size="5" style="width:200px;visibility:visible">
+		<option value="0">...</option>
+		<option value="1">coche</option>
+		<option value="2">avion</option>
+		<option value="3">moto</option>
+		<option value="4">tren</option>
+		<option value="5">tren1</option>
+		<option value="6">tren</option>
+	</select>
+	</form>
+	</body>
+	</html>  -->
+
+
+	<!-- <HTML>
+		<HEAD>
+		<SCRIPT type="text/javascript">
+		function crit_busqueda() {
+		  var input=document.getElementById('texto_busqueda').value.toLowerCase();
+		  var output=document.getElementById('id_textos').options;
+		  //debugger
+		  for(var i=0;i<output.length;i++) {
+			
+			//var val=output[i].text
+			if(output[i].text.indexOf(input)==0){
+			  output[i].selected=true;
+			  
+			  }
+			if(document.forms[0].texto_busqueda.value==''){
+			  output[0].selected=true;
+			  }
+		  }
+		}
+		</SCRIPT>
+		</HEAD>
+		<BODY>
+		<FORM>
+		Search <input type="text" id="texto_busqueda" onkeyup="crit_busqueda()">
+		<SELECT id="id_textos">
+			<option value="0">...</option>
+			<option value="1">coche</option>
+			<option value="2">avion</option>
+			<option value="3">moto</option>
+			<option value="4">tren</option>
+			<option value="5">tren1</option>
+			<option value="6">tren</option>
+		</SELECT>
+		</FORM>
+		</BODY>
+		</HTML> -->
+
+	
+
+	<HTML>
+		<HEAD>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+		
+		
+		</HEAD>
+		<BODY>
+		<FORM>
+		<!-- Search <input type="text" id="texto_busqueda" onkeyup="crit_busqueda()"> -->
+		<SELECT class="js-example-basic-single" id="id_textos">
+			<option value="1">WILBERTH ALEXANDER ALVARADO JAIME</option>
+			<option value="2">GERVACIO LORENZO OBANDO RUIZ</option>
+			<option value="3">ROGER ANTONIO ALVAREZ</option>
+			<option value="4">MARCOS ANTONIO OLIVAREZ PALACIO</option>
+			<option value="5">DOUGLAS FRANCISCO NAVARRO ESPINOZA</option>
+			<option value="6">WILLIAM JOSE ESPINOZA MENDOZA</option>
+			<option value="7">JOSE ALBERTO MORA PICADO</option>
+			<option value="8">TOMAS ANTONIO RIVERA AGUILAR</option>
+			<option value="9">JAIRO JOSE IZQUIERDO LLANES</option>
+			<option value="10">JUAN ALBERTO SAMAYOA SANCHEZ</option>
+			<option value="11">GERVACIO LORENZO OBANDO RUIZ</option>
+			<option value="12">LESTER ALEXANDER LOPEZ</option>
+			<option value="13">WILFREDO JOSE OBANDO FRANCO</option>
+			<option value="14">EDUARDO ENRIQUE PERALTA ESCOBAR</option>
+		</SELECT>
+		</FORM>
+		</BODY>
+		</HTML>
+		<SCRIPT type="text/javascript">
+			
+			$(document).ready(function() {
+				$('.js-example-basic-single').select2();
+
+				const h='HOLA MUNDO'
+
+				alert( `es un   ${h}`)
+
+			});
+			
+					
+		</SCRIPT>
+
+
+
+		

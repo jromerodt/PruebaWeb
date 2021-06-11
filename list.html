@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.cb{
+display: none; /* Por defecto */
+width: 120px;
+height: 120px;
+margin: 10px;
+font-size: 13px;
+text-align: center;
+border: 1px solid #666;
+text-align: center;
+}
+.color_1{
+background-color: white;
+}
+
+.color_2{
+color: white;
+background-color: black;
+}
+
+.color_3{
+color: white;
+background-color: gray;
+}
+
+.color_4{
+color: white;
+background-color: red;
+}
+
+.color_5{
+background-color: yellow;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<select class="form-control" name="nuevo_filtro" id="filtros">
+<option value="">Selecciona un color</option>
+<option value="1">Blanco</option>
+<option value="2">Negro</option>
+<option value="3">Gris</option>
+<option value="4">Rojo</option>
+<option value="5">Amarillo</option>
+</select>
+<br>
+<br>
+<div class="cb color_1">Color Blanco</div>
+<div class="cb color_2">Color Negro</div>
+<div class="cb color_3">Color Gris</div>
+<div class="cb color_4">Color Rojo</div>
+<div class="cb color_5">Color Amarillo</div>
+
+<script type="text/javascript">
+$(function(){
+$('#filtros').on('change', function(){
+var value = $(this).val();
+// Ocultamos todos los contenedores de colores
+$('.cb').hide();
+// Mostramos el color elegido
+$('.color_' + value ).show();
+});
+});
+</script>
+</body>
+</html>
