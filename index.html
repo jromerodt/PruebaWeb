@@ -195,8 +195,60 @@ if (fil>0){
 					//aun sigo aqui
 					//estoy en la rama 1
 
+
+
+
+
+				var credenciales=	{
+						"ip" : "10.120.12.104",
+						"port" : "9000",
+						"user" : "salomon.castillo@airpak-latam.com",
+						"pass" : "f60e0810503ab4aa52c83676cde1009c",
+						"nApp" : "1001",
+						"GetAuth" : "/datasnap/rest/TBasicoGeneral/\"GetAuth\"/",
+						"GetSql" : "/datasnap/rest/TBasicoGeneral/\"GetSql\"/",
+						"GetListaOperaciones":"/datasnap/rest/TCatOperaciones/\"GetListaOperaciones\"/",
+						"DoExe" : "/datasnap/rest/TCatOperaciones/\"DoExecuteOprAction\"/",
+						"GetInv" : "/datasnap/rest/TInventarios/\"GetListaMovInventario\"/",
+						"ChangeEmp" : "/datasnap/rest/TBasicoGeneral/\"SetDatosTrabajo\"/",
+						"dataListOperaciones":{ "datospagina": {"cantidadregistros": "200","pagina": "1"},
+							"camposderetorno": ["inumoper","tdetalle","fcreacion","ncorto","iestado","ntdsop","ntercero","fsoport","snumsop","banulada","mingresos","megresos","mtotaloperacion"],
+							"ordenarpor": {"fsoport": "desc"},"itdoper":["COM1"],"fmes":"7","fanio":"2019"
+						},
+						"sqlPresupuesto" : "SELECT c.IEMP as iemp, c.FSOPORT as fsoport, c.TDETALLE as tdetalle, c.INUMSOP as inumsop, c.IETAPA as ietapa,c.ISEDE as isede, c.ICC as icc, c.ICUENTA as icuenta, c.ICTAPPTO as ictappto,c.MDEBITO as mdebito,  c.MCREDITO as mcredito, c.MSALDO as msaldo, SVALORADIC4 as ciclo,ti.CALC_NTERCERONAPELLIDO as tercero, ci.NCUENTANIIF as bniif FROM CNTMOVUN c LEFT JOIN ACTIVIDADES a ON (c.IACTIVIDAD=a.IACTIVIDAD) LEFT JOIN OPRMAEST o  ON (c.IEmp=o.IEmp) AND (c.INUMOPER=o.INUMOPER) LEFT JOIN CNTPUC ci  ON (c.ICTAPPTO=ci.ICUENTA) AND (c.ICUENTA=ci.ICUENTA) LEFT JOIN ABANITS ti  ON (c.INITVENDEDOR=ti.INIT) AND (c.INIT=ti.INIT) WHERE c.FSOPORT BETWEEN feIni AND feFin AND (c.BLocal='T') AND (c.ICUENTA IN ('110304', '110401') OR (c.ICUENTA LIKE '6%%') )",
+						"sqlFacturas":"SELECT iemp AS IdEmpresa,fsoport AS fecha,inumoper AS Id,inumsop AS NumFactura,tdetalle AS detalle,msaldo AS total FROM CNTMOVUN c  WHERE c.FSOPORT BETWEEN feIni AND feFin AND c.inumsop LIKE 'FC-%%' AND tdetalle NOT LIKE '%%traslado%%'",
+						"sqlInv":"SELECT * FROM KARMOVUN LEFT JOIN OPRMAEST O_INUMOPER  ON (KARMOVUN.INUMOPER=O_INUMOPER.INUMOPER) LEFT JOIN INVMREC R_IPRODUCTOORIGEN  ON (KARMOVUN.IPRODUCTOORIGEN=R_IPRODUCTOORIGEN.IRECURSO) LEFT JOIN INVMREC R_IPRODUCTO  ON (KARMOVUN.IPRODUCTO=R_IPRODUCTO.IRECURSO) LEFT JOIN EMPMAESTCC N_ICC  ON (KARMOVUN.IEmp=N_ICC.IEmp) AND (KARMOVUN.ICC=N_ICC.ICC) WHERE (KARMOVUN.FSoport BETWEEN '2019-08-01'  AND '2019-08-31') AND ( KARMOVUN.ITDMOV = 3009)",
+						"sqlCK":"SELECT IEMP, FSOPORT, ICUENTA, CNTMOVUN.INIT, CNTMOVUN.INUMSOP, FPAGO, CNTMOVUN.TDETALLE, MDEBITO, MCREDITO, MSALDO  IFLUJO, ICHEQUE FROM  CNTMOVUN WHERE ((CntMovUn.ICuenta LIKE '110102%')) AND (CNTMOVUN.Fmes=4 and CNTMOVUN.Fanio=2020 ) AND (CNTMOVUN.BLocal='T')",
+						"empresas":{
+							"san samuel" :{ "id": "1" , "nombre": "Agricola San Samuel S.A" },
+							"el mango" : { "id":"2", "nombre": "Agricola El Mango S.A" },
+							"pcm" : { "id": "3", "nombre": "Piero Coen Montealegre" },
+							"incosa" : { "id": "4", "nombre": "INCOSA" },
+							"azucarera" : { "id": "7", "nombre" : "Agricola Azucarera S.A" }
+						}
+						}
+
+
+
+
+		/*var response = JSON.parse( `http://${credenciales.ip}:${credenciales.port}${credenciales.GetAuth}`),*/
+     /*var response= JSON.stringify({_parameters : [ JSON.stringify({email:credenciales.user,password:credenciales.pass}), '', credenciales.nApp, '0']})*/
+
+
+	 var response=JSON.stringify({"_parameters": [ JSON.stringify( {sql:"SELECT IRECURSO,NRECURSO,NUNIDAD,IGRUPOINV,NUNIDADCOMPRA FROM INVMREC"}), 'keyagente', credenciales.nApp ,'0'] }) 
+	  console.log(response)
+
+
+
+
+
+
+
+
 		</SCRIPT>
 
+
+<script src="funciones.js" language="javascript" type="text/javascript"></script>
 
 
 		
