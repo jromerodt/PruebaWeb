@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Principal",
+      "parent": "null",
+      "children": [
+        {
+          "name": "Bodega 1: 1",
+          "parent": "Principal",
+          "children": [
+  
+            {
+              "name": "Sub bodega 1",
+              "parent": "Bodega 1: 1"
+            },
+            {
+              "name": "Sub bodega 2",
+              "parent": "Bodega 1: 1"
+            }
+          ]
+        },
+        {
+          "name": "Bodega 2: 2",
+          "parent": "Principal"
+        }
+      ]
+    }
+  ]
