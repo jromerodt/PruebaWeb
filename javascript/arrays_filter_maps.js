@@ -68,14 +68,5 @@ let userFullnames = users.map(function(element){
 console.log(userFullnames);
 // ["Susan Steward", "Daniel Longbottom", "Jacob Black"]
 
-////FETCH////
-const fetch = require('node-fetch');
 
 
-fetch('https://pokeapi.co/api/v2/pokemon')
-  .then(response => response.json()) 
-  .then(data => console.log(data))
-
- 
-
- 
